@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="fintreen_transactions" resource="default" engine="innodb" comment="Fintreen Transactions">
+        <column xsi:type="int" name="id" padding="10" unsigned="true" nullable="false" identity="true" comment="ID"/>
+        <column xsi:type="bigint" name="fintreen_id" unsigned="true" nullable="false" comment="Fintreen ID"/>
+        <column xsi:type="int" name="user_id" unsigned="true" nullable="true" comment="User ID"/>
+        <column xsi:type="decimal" name="fiat_amount" scale="2" precision="35" unsigned="true" nullable="false" comment="Fiat Amount"/>
+        <column xsi:type="varchar" name="fintreen_fiat_code" nullable="false" length="3" default="EUR" comment="Fintreen Fiat Code"/>
+        <column xsi:type="decimal" name="crypto_amount" scale="12" precision="35" unsigned="true" nullable="false" comment="Crypto Amount"/>
+        <column xsi:type="varchar" name="fintreen_crypto_code" nullable="false" length="10" comment="Fintreen Crypto Code"/>
+        <column xsi:type="smallint" name="fintreen_status_id" unsigned="true" nullable="false" default="1" comment="Fintreen Status ID"/>
+        <column xsi:type="smallint" name="is_test" unsigned="true" nullable="false" default="0" comment="Is Test"/>
+        <column xsi:type="text" name="link" nullable="false" comment="Payment Link"/>
+        <column xsi:type="timestamp" name="created_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP" comment="Created At"/>
+        <column xsi:type="timestamp" name="updated_at" on_update="true" nullable="false" default="CURRENT_TIMESTAMP" comment="Updated At"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+        <constraint xsi:type="unique" referenceId="FINTREEN_TRANSACTIONS_FINTREEN_ID_IS_TEST">
+            <column name="fintreen_id"/>
+            <column name="is_test"/>
+        </constraint>
+    </table>
+</schema>

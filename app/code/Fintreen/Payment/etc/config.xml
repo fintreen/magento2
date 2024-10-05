@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <payment>
+            <fintreen>
+                <active>0</active>
+                <model>Fintreen\Payment\Model\Payment</model>
+                <title>Fintreen Crypto Payment</title>
+                <token backend_model="Magento\Config\Model\Config\Backend\Encrypted"/>
+                <email/>
+                <test_mode>0</test_mode>
+            </fintreen>
+        </payment>
+    </default>
+</config>
